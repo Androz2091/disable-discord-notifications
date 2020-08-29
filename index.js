@@ -22,7 +22,7 @@ const getGuilds = async () => {
 
 const startAt = Date.now();
 getGuilds().then(async (guilds) => {
-    for (const guild of (guilds.splice(80))) {
+    for (const guild of guilds) {
         await makeRequest('PATCH', `https://discordapp.com/api/v8/users/@me/guilds/${guild.id}/settings`, {
             message_notifications: 2
         });
